@@ -1,0 +1,40 @@
+mat-card-title{
+  font-size: 1.3em;
+}
+
+
+.sent {
+  background-color: salmon;
+  width: 40%;
+  margin: 1%;
+  margin-left: 70%;
+  float: right;
+}
+
+.received {
+  background-color: cornflowerblue;
+  width: 40%;
+  margin: 1%;
+  margin-right: 70%;
+  float: left;
+}
+
+#message_card {
+  color: black;
+  font-size: small;
+  font-weight: lighter;
+  border-radius: 3%;
+}
+
+mat-card-subtitle{
+  margin: 1%;
+  margin-top: 10%;
+}
+
+mat-card-title{
+  margin: 2%;
+}
+
+mat-card{
+  padding:2%;
+}

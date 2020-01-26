@@ -1,0 +1,33 @@
+#inbox {
+    width: 60vw;
+    height: 70vh;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    bottom: 10%;
+    right: 0;
+    overflow: auto;
+}
+
+#message_wrapper{
+    width: 100%;
+}
+
+
+#input_form {
+    margin: auto;
+    margin-left: 10%;
+    width: 100%;
+    min-width: 150px;
+    max-width: 500px;
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    bottom: 0;
+    right: 10vw;
+}
+
+#form_field {
+    width: 80%;
+}

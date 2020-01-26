@@ -1,0 +1,21 @@
+<div id="window">
+  <div id="inbox">
+      <div id="messages" *ngFor="let mes of messageArr">
+          <div id="message_wrapper">
+            <app-message [message]=mes [sent]="checkIfSent(mes)"></app-message>
+          </div>
+        </div>
+  </div>
+
+<form id="input_form">
+    <mat-form-field id="form_field">
+        <input id="input_message" matInput [(ngModel)]="curMessage" [ngModelOptions]="{standalone: true}">
+          <mat-hint align="end">Message</mat-hint>
+        </mat-form-field>
+        <button (click)="sendMessage(curMessage)" mat-icon-button style="align-content: right;">
+            <mat-icon>send</mat-icon>
+      </button>
+    </form>    
+</div>
+
+

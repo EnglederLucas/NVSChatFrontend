@@ -1,0 +1,10 @@
+<mat-sidenav-container class="contacts-container">
+   <mat-sidenav mode="side" opened></mat-sidenav>
+   <mat-sidenav-content>
+      <mat-nav-list>
+            <h2 class="text" matSubheader>Contacts</h2>
+      <a class="text" mat-list-item href="..." *ngFor="let u of allUsers">    <mat-divider></mat-divider>
+         {{ u.userName }} </a>
+   </mat-nav-list>
+   </mat-sidenav-content>
+</mat-sidenav-container>
