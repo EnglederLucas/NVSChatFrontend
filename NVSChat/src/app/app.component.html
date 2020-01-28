@@ -1,5 +1,5 @@
 <div *ngIf="!loggedIn">
-    <app-login (logIn)="logInCompleted()"></app-login>
+    <app-login (logIn)="logInCompleted($event)"></app-login>
 </div>
 
 <div *ngIf="loggedIn">

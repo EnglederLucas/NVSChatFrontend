@@ -1,3 +1,4 @@
+import { IReceiver } from 'src/app/contracts/IReceiver';
 import { ChatService } from './../../services/chat.service';
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
@@ -9,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   showSpinner: boolean;
-  @Output() logIn: EventEmitter<void> = new EventEmitter<void>();
+  @Output() logIn: EventEmitter<any> = new EventEmitter<any>();
   username: string;
   password: string;
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogin() {
+  onLogin(){
     //TODO login
     this.service.successfulLogin.subscribe((res) => {
       this.showSpinner = false;
@@ -31,10 +32,5 @@ export class LoginComponent implements OnInit {
     });
 
     this.service.login(this.username, this.password);
-    return;
-  }
-
-  authenticate(userJwt: string) {
-    //TODO authenticate
   }
 }

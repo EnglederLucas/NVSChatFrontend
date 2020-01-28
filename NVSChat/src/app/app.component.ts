@@ -9,8 +9,11 @@ import { IReceiver } from "./contracts/IReceiver";
 export class AppComponent{
   title = 'NVSChat';
   loggedIn = false;
+  user: IReceiver;
 
-  logInCompleted() {
+
+  logInCompleted(me: IReceiver) {
+    this.user = me;
     this.loggedIn = true;
   }
 }
