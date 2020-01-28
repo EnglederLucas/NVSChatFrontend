@@ -1,8 +1,8 @@
-import {IUser} from './iuser';
+import {IReceiver} from './ireceiver';
 
 export interface IMessage {
   messageId: number;
   message: string;
-  receiver: IUser;
-  sender: IUser;
+  receiver: IReceiver;
+  sender: IReceiver;
 }

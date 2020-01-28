@@ -1,4 +1,5 @@
 export interface IReceiver {
-  name: string,
-  id: number
+  id: number;
+  name: string;
+  isGroup: boolean;
 }

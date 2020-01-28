@@ -8,7 +8,12 @@ import { ChatWindowComponent } from './components/chat-window/chat-window.compon
 import { MessageComponent } from './components/message/message.component';
 import {FormsModule} from '@angular/forms';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
+import { SocketIoModule, SocketIoConfig, Socket } from 'ngx-socket-io';
+import {NgxAutoScrollModule} from 'ngx-auto-scroll';
+import { SimplebarAngularModule } from 'simplebar-angular';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [
@@ -22,7 +27,10 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SocketIoModule.forRoot(config),
+    NgxAutoScrollModule,
+    SimplebarAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
+import { IMessage } from './../../contracts/imessage';
+import { Message } from './../../models/message';
+import { ChatService } from './../../services/chat.service';
+import { IReceiver } from './../../contracts/ireceiver';
 import {Component, Input, OnInit} from '@angular/core';
-import {IMessage} from '../../contracts/imessage';
 import {log} from 'util';
-import {IUser} from '../../contracts/iuser';
 
 @Component({
   selector: 'app-chat-window',
@@ -10,26 +12,40 @@ import {IUser} from '../../contracts/iuser';
 })
 export class ChatWindowComponent implements OnInit {
 //TODO: Mit @Input fixen
-  userInput: IUser = {
-    userName: 'Lux',
-    userId: 3
-  };
-  curMessage: string;
+  @Input() me: IReceiver;
+  @Input() chatPartner: IReceiver;
 
+
+  curMessage: string;
   public messageArr: Array<IMessage> = new Array<IMessage>();
 
 
+  constructor(private chat: ChatService) {
+    chat.incomingMessages.subscribe((mes) => {
+      if (mes.sender.id === this.chatPartner.id) {
+        this.messageArr.push(mes);
+      }
+    });
 
-  constructor() {
-    const u: IUser = {
-      userId: 1,
-      userName: 'Joe'
+    const u: IReceiver = {
+      id: 1,
+      name: 'Joe',
+      isGroup: false
     };
 
-    const u2: IUser = {
-      userId: 2,
-      userName: 'Peter'
+    const u2: IReceiver = {
+      id: 2,
+      name: 'Peter',
+      isGroup: false
     };
+
+    const lux: IReceiver = {
+      id: 5,
+      name: 'Lux',
+      isGroup: false
+    };
+
+    this.me = lux;
 
     const m: IMessage = {
       message: 'Hallo wie gehts?',
@@ -42,7 +58,7 @@ export class ChatWindowComponent implements OnInit {
       message: '?',
       messageId: 2,
       receiver: u,
-      sender: u2
+      sender: u2,
     };
     this.messageArr.push(a);
 
@@ -50,7 +66,7 @@ export class ChatWindowComponent implements OnInit {
       message: 'Idk',
       messageId: 4,
       receiver: u,
-      sender: u2
+      sender: lux
     };
 
     this.messageArr.push(bb);
@@ -61,7 +77,7 @@ export class ChatWindowComponent implements OnInit {
     const own: IMessage = {
       message: 'Ich bins',
       messageId: 5,
-      sender: this.userInput,
+      sender: this.me,
       receiver: u
     };
 
@@ -70,11 +86,20 @@ export class ChatWindowComponent implements OnInit {
 
   sendMessage(mes: string): void{
     console.log(mes);
-    //TODO: sendMessage with sockets logic
+    const res: IMessage = {
+      message: mes,
+      sender: this.me,
+      receiver: this.chatPartner,
+      messageId: null
+    };
+
+    this.chat.sendMessage(res);
+    this.messageArr.push(res);
+    this.curMessage = '';
   }
   
   checkIfSent(mes: IMessage): boolean {
-    return mes.sender.userId === this.userInput.userId;
+    return mes.sender.id === this.me.id;
   }
 
   ngOnInit() {

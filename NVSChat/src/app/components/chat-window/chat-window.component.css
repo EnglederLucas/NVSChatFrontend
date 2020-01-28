@@ -7,7 +7,8 @@
     left: 10%;
     bottom: 10%;
     right: 0;
-    overflow: auto;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #message_wrapper{
@@ -20,10 +21,10 @@
     margin-left: 10%;
     width: 100%;
     min-width: 150px;
-    max-width: 500px;
+    max-width: 80vw;
     position: absolute;
-    top: 80vh;
-    left: 45vw;
+    top: 85vh;
+    left: 10vw;
     bottom: 0;
     right: 10vw;
 }
@@ -31,3 +32,16 @@
 #form_field {
     width: 80%;
 }
+
+::ng-deep input.mat-input-element {
+    color: green;
+  }
+
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: cornflowerblue !important;
+  }
+  
+  /* underline border color on focused */
+  ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: cornflowerblue !important;
+  }

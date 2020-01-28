@@ -1,31 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {IUser} from './contracts/iuser';
-import {User} from './models/user';
+import { IReceiver } from "./contracts/IReceiver";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'NVSChat';
-  loggedIn: boolean = false;
+  loggedIn = false;
 
-  logInCompleted(){
+  logInCompleted() {
     this.loggedIn = true;
   }
-
-  public lux: User = {
-    userId: 1,
-    userName: 'Man'
-  };
-
-  ngOnInit(): void {
-    this.lux = {
-      userName: 'Lux',
-      userId: 3
-    };
-  }
-
-
 }

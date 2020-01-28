@@ -1,9 +1,9 @@
 import {IMessage} from '../contracts/imessage';
-import {IUser} from '../contracts/iuser';
+import { IReceiver } from '../contracts/IReceiver';
 
 export class Message implements IMessage{
   message: string;
   messageId: number;
-  receiver: IUser;
-  sender: IUser;
+  receiver: IReceiver;
+  sender: IReceiver;
 }

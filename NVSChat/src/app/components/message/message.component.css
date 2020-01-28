@@ -1,5 +1,6 @@
 mat-card-title{
   font-size: 1.3em;
+  word-wrap: break-word;
 }
 
 
@@ -20,13 +21,14 @@ mat-card-title{
 }
 
 #message_card {
-  color: black;
+  color: whitesmoke;
   font-size: small;
   font-weight: lighter;
   border-radius: 3%;
 }
 
 mat-card-subtitle{
+  color: whitesmoke;
   margin: 1%;
   margin-top: 10%;
 }
