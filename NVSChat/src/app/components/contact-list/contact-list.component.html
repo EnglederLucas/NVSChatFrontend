@@ -3,16 +3,16 @@
    <mat-sidenav-content>
       <mat-nav-list>
       <h2 class="text" matSubheader>Chats</h2>
-      <a class="text" mat-list-item *ngFor="let c of allChats" (click)="onContactClick(c)">
+      <a class="text" mat-list-item routerLink="/" routerLinkActive="active-link" *ngFor="let c of allChats" (click)="onContactClick(c)">
          <mat-divider></mat-divider> 
          <mat-icon *ngIf="!c.isGroup" aria-hidden="false" aria-label="Person" style="margin-right: 10px">person</mat-icon>
-         <span matBadge="0" matBadgeOverlap="false" matBadgeColor="salmon">{{ c.name }} </span>
+         <mat-icon *ngIf="c.isGroup" aria-hidden="false" aria-label="Group" style="margin-right: 10px">group</mat-icon>
+         <span matBadge="0" matBadgeOverlap="false" matBadgePosition="after">{{ c.name }} </span>
       </a>
       
          <a class="text" mat-list-item link="/">Create Group  
             <mat-icon aria-hidden="false" aria-label="Example home icon" style="margin-left: 10px">add_circle_outline</mat-icon>
          </a>
-
       </mat-nav-list>
 
    </mat-sidenav-content>

@@ -28,8 +28,8 @@ export class ChatService {
   }
 
   public getAllChatPartners(me: IReceiver) {
-    this.socket.emit('get-all-chat-partners', me);
-    return this.socket.fromEvent<any>('get-all-chat-partners');
+    this.socket.emit('receivers', me);
+    return this.socket.fromEvent<any>('receivers');
   }
 
   /*public getMessages = () => {

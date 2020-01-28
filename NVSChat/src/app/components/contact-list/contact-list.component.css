@@ -13,3 +13,22 @@
    color: whitesmoke;
     
 }
+
+.mat-badge-content{
+    background-color: whitesmoke;
+    color: cornflowerblue;
+    margin-left: 10%;
+}
+
+/*a.mat-list-item:active { 
+    color: green; 
+    background-color: purple;
+}
+ 
+mat-nav-list[aria-selected="true"]{
+    background-color: green;
+}
+
+.active-list-item {
+    color: #3F51B5 !important; /* Note: You could also use a custom theme 
+  }*/

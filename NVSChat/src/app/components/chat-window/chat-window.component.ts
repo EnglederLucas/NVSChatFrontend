@@ -16,7 +16,7 @@ export class ChatWindowComponent implements OnInit {
   @Input() chatPartner: IReceiver;
 
 
-  curMessage: string;
+  curMessage = '';
   public messageArr: Array<IMessage> = new Array<IMessage>();
 
 
@@ -85,6 +85,8 @@ export class ChatWindowComponent implements OnInit {
   }
 
   sendMessage(mes: string): void{
+    if(mes === '' || mes === null) { return };
+
     console.log(mes);
     const res: IMessage = {
       message: mes,

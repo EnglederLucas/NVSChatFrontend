@@ -33,9 +33,6 @@
     width: 80%;
 }
 
-::ng-deep input.mat-input-element {
-    color: green;
-  }
 
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
     color: cornflowerblue !important;

@@ -1,19 +1,22 @@
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
-  <mat-grid-tile colspan="2" rowspan="3">
-    <mat-card class="mat-typography login">
-      <h1>Login</h1>
-      <form (ngSubmit)="onLogin()">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Username" name="username" [(ngModel)]="username">
-        </mat-form-field>
-        <br>
-        <button type="submit" mat-raised-button color="primary" (click)="showSpinner = !showSpinner">Login
-          <mat-spinner color="accent" mode="indeterminate" *ngIf="showSpinner"></mat-spinner>
-        </button>
-      </form>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div id="whole_page">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="5"></mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="3">
+          <mat-card class="mat-typography login" >
+            <h1>Login</h1>
+            <form (ngSubmit)="onLogin()">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Username" name="username" [(ngModel)]="username">
+                <!--<input matInput placeholder="Password" name="password" [(ngModel)]="password">-->
+              </mat-form-field>
+              <br>
+              <button type="submit" mat-raised-button style="background-color: salmon; color: whitesmoke" (click)="showSpinner = !showSpinner">Login
+                <mat-spinner color="#f5f5f5" mode="indeterminate" *ngIf="showSpinner"></mat-spinner>
+              </button>
+            </form>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>

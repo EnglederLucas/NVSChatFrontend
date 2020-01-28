@@ -1,15 +1,32 @@
 .login {
     text-align: center;
 }
- 
+
 .mat-spinner {
     width: 20px !important;
     height: 20px !important;
     display: inline-block;
     margin-left: 10px;
+    color: white;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: whitesmoke;
 }
  
 /deep/ .mat-spinner svg{
     width: 20px !important;
     height: 20px !important;
 }
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: salmon !important;
+}
+  
+  /* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: salmon !important;
+}
+
+
+
