@@ -18,11 +18,13 @@ export class ChatService {
     this.socket.emit('message', message);
   }
 
-  public login(username: string) {
+  public login(username: string, password: string) {
     const req = {
       userName: username,
-      password: null
+      password: password
     };
+
+    console.log(req.userName + ' ' + req.password)
 
     this.socket.emit('login', req);
   }

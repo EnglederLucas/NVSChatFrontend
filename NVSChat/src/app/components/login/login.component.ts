@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   showSpinner: boolean;
   @Output() logIn: EventEmitter<void> = new EventEmitter<void>();
   username: string;
+  password: string;
 
   constructor(private service: ChatService) { }
 
@@ -21,15 +22,15 @@ export class LoginComponent implements OnInit {
     //TODO login
     this.service.successfulLogin.subscribe((res) => {
       this.showSpinner = false;
-      if(res.success === true) {
+      if (res.success === true) {
         this.logIn.emit(res.user);
       }
       else {
-        console.log(res.err)
+        console.log(res.err);
       }
     });
 
-    this.service.login(this.username);
+    this.service.login(this.username, this.password);
     return;
   }
 
