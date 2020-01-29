@@ -20,6 +20,25 @@
     margin-left: 10%;
 }
 
+
+mat-toolbar{
+    width: 87vw; 
+    background-color: cornflowerblue;
+    align-items: center;
+    color: whitesmoke;
+    text-align: center;
+    margin-left:16%;
+}
+
+#selected_name{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#subheader{
+    margin-bottom: 7.5%;
+}
+
 /*a.mat-list-item:active { 
     color: green; 
     background-color: purple;

@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
       }
     });
 
+    /*if(this.username === 'admin' && this.password === 'admin'){
+      this.logIn.emit({id: 0, name: 'admin', isGroup: false});
+    }*/
+
     this.service.login(this.username, this.password);
   }
 }

@@ -1,8 +1,8 @@
-   <mat-sidenav-container class="contacts-container">
+<mat-sidenav-container class="contacts-container">
    <mat-sidenav mode="side" opened></mat-sidenav>
    <mat-sidenav-content>
       <mat-nav-list>
-      <h2 class="text" matSubheader>Chats</h2>
+      <h2 id="subheader" class="text" matSubheader>Chats</h2>
       <a class="text" mat-list-item routerLink="/" routerLinkActive="active-link" *ngFor="let c of allChats" (click)="onContactClick(c)">
          <mat-divider></mat-divider> 
          <mat-icon *ngIf="!c.isGroup" aria-hidden="false" aria-label="Person" style="margin-right: 10px">person</mat-icon>
@@ -18,6 +18,9 @@
    </mat-sidenav-content>
 </mat-sidenav-container>
 
+<mat-toolbar style="text-align: center; max-height: 11vh;">
+   <h3 id="selected_name">asldaslkdöaks{{selectedReceiver?.name}}</h3>
+</mat-toolbar>
             
 <div *ngIf="selectedReceiver !== undefined && selectedReceiver !== null && me !== null && me !== undefined">
    <app-chat-window [me]="me" [chatPartner]="selectedReceiver">

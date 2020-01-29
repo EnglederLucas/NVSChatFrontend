@@ -11,7 +11,6 @@ import {log} from 'util';
   styleUrls: ['./chat-window.component.css']
 })
 export class ChatWindowComponent implements OnInit {
-//TODO: Mit @Input fixen
   @Input() me: IReceiver;
   @Input() chatPartner: IReceiver;
 
@@ -24,7 +23,7 @@ export class ChatWindowComponent implements OnInit {
   }
 
   sendMessage(mes: string): void{
-    if(mes === '' || mes === null) { return };
+    if (mes === '' || mes === null) { return; };
 
     console.log(mes);
     const res: IMessage = {
@@ -44,6 +43,8 @@ export class ChatWindowComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit chatWindow');
+
     this.chat.incomingMessages.subscribe((mes) => {
       console.log('Got message from server: ' + JSON.stringify(mes));
       if (mes.sender.id === this.chatPartner.id) {
@@ -51,6 +52,63 @@ export class ChatWindowComponent implements OnInit {
       }
     });
     console.log(JSON.stringify(this.chatPartner));
+
+    const u: IReceiver = {
+      id: 1,
+      name: 'Joe',
+      isGroup: false
+    };
+
+    const u2: IReceiver = {
+      id: 2,
+      name: 'Peter',
+      isGroup: false
+    };
+
+    const lux: IReceiver = {
+      id: 5,
+      name: 'Lux',
+      isGroup: false
+    };
+
+
+    const m: IMessage = {
+      message: 'Hallo wie gehts?',
+      messageId: 1,
+      sender: u,
+      receiver: u2
+    };
+    this.messageArr.push(m);
+    const a: IMessage = {
+      message: '?',
+      messageId: 2,
+      receiver: u,
+      sender: u2,
+    };
+    this.messageArr.push(a);
+
+    const bb: IMessage = {
+      message: 'Idk',
+      messageId: 4,
+      receiver: u,
+      sender: lux
+    };
+
+    console.log(bb);
+
+    this.messageArr.push(bb);
+    this.messageArr.push(bb);
+    this.messageArr.push(bb);
+    this.messageArr.push(bb);
+
+    const own: IMessage = {
+      message: 'Ich bins',
+      messageId: 5,
+      sender: this.me,
+      receiver: u
+    };
+
+    this.messageArr.push(own);
   }
 
 }

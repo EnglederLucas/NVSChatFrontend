@@ -1,8 +1,8 @@
-<div *ngIf="!loggedIn">
+<div *ngIf="loggedIn">
     <app-login (logIn)="logInCompleted($event)"></app-login>
 </div>
 
-<div *ngIf="loggedIn">
+<div *ngIf="!loggedIn">
     <app-contact-list [me]="this.user">
     </app-contact-list>
 </div>

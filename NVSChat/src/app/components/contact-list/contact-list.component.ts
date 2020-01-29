@@ -13,6 +13,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class ContactListComponent implements OnInit {
   @Input() me: IReceiver;
   allChats: Array<IReceiver> = new Array<IReceiver>();
+  //unreadCounter: Map<number, number> = new Map<number, number>();
   selectedReceiver: IReceiver;
 
   constructor(private service: ChatService) {
@@ -20,6 +21,7 @@ export class ContactListComponent implements OnInit {
 
   onContactClick(receiver: IReceiver) {
     this.selectedReceiver = receiver;
+    console.log("Receiver: " + receiver + " Sender: " + this.me);
   }
 
 

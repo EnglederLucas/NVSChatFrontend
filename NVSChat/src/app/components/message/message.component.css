@@ -1,6 +1,7 @@
 mat-card-title{
   font-size: 1.3em;
   word-wrap: break-word;
+  margin-left: 0.2em;
 }
 
 
@@ -21,6 +22,7 @@ mat-card-title{
 }
 
 #message_card {
+  margin-top: 1%;
   color: whitesmoke;
   font-size: small;
   font-weight: lighter;
@@ -30,7 +32,7 @@ mat-card-title{
 mat-card-subtitle{
   color: whitesmoke;
   margin: 1%;
-  margin-top: 10%;
+  margin-top: 15%;
 }
 
 .text{
@@ -38,5 +40,5 @@ mat-card-subtitle{
 }
 
 mat-card{
-  padding:2%;
+  padding: 1.5%;
 }
