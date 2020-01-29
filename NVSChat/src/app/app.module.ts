@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SocketIoModule, SocketIoConfig, Socket } from 'ngx-socket-io';
 import {NgxAutoScrollModule} from 'ngx-auto-scroll';
 import { SimplebarAngularModule } from 'simplebar-angular';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const config: SocketIoConfig = { url: 'http://localhost:3030', options: {} };
 
@@ -30,7 +32,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3030', options: {} };
     MaterialModule,
     SocketIoModule.forRoot(config),
     NgxAutoScrollModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

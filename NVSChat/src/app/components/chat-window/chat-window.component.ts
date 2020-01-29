@@ -13,7 +13,7 @@ import {log} from 'util';
 export class ChatWindowComponent implements OnInit {
   @Input() me: IReceiver;
   @Input() chatPartner: IReceiver;
-
+  @Input() messages: Array<IMessage>;
 
   curMessage = '';
   public messageArr: Array<IMessage> = new Array<IMessage>();
@@ -34,6 +34,7 @@ export class ChatWindowComponent implements OnInit {
     };
 
     this.chat.sendMessage(res);
+    console.log('Pushing Message');
     this.messageArr.push(res);
     this.curMessage = '';
   }
@@ -45,70 +46,10 @@ export class ChatWindowComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit chatWindow');
 
-    this.chat.incomingMessages.subscribe((mes) => {
-      console.log('Got message from server: ' + JSON.stringify(mes));
-      if (mes.sender.id === this.chatPartner.id) {
-        this.messageArr.push(mes);
-      }
-    });
+    this.messageArr = this.messages.filter(mes => mes.receiver.id === this.chatPartner.id && mes.sender.id === this.chatPartner.id);
+    console.log(this.chatPartner.name + ' ' + "My Messsages " + this.messageArr.length);
+
     console.log(JSON.stringify(this.chatPartner));
-
-    const u: IReceiver = {
-      id: 1,
-      name: 'Joe',
-      isGroup: false
-    };
-
-    const u2: IReceiver = {
-      id: 2,
-      name: 'Peter',
-      isGroup: false
-    };
-
-    const lux: IReceiver = {
-      id: 5,
-      name: 'Lux',
-      isGroup: false
-    };
-
-
-    const m: IMessage = {
-      message: 'Hallo wie gehts?',
-      messageId: 1,
-      sender: u,
-      receiver: u2
-    };
-    this.messageArr.push(m);
-    const a: IMessage = {
-      message: '?',
-      messageId: 2,
-      receiver: u,
-      sender: u2,
-    };
-    this.messageArr.push(a);
-
-    const bb: IMessage = {
-      message: 'Idk',
-      messageId: 4,
-      receiver: u,
-      sender: lux
-    };
-
-    console.log(bb);
-
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-
-    const own: IMessage = {
-      message: 'Ich bins',
-      messageId: 5,
-      sender: this.me,
-      receiver: u
-    };
-
-    this.messageArr.push(own);
   }
 
 }

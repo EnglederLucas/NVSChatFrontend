@@ -2,6 +2,7 @@ import { IReceiver } from 'src/app/contracts/IReceiver';
 import { Socket } from 'ngx-socket-io';
 import { IMessage } from './../contracts/imessage';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,32 @@ export class ChatService {
   incomingMessages = this.socket.fromEvent<IMessage>('message');
   successfulLogin = this.socket.fromEvent<any>('login');
 
-  constructor(private socket: Socket) {
-      //this.socket = io(this.url);
+  constructor(private socket: Socket, private http: HttpClient) {
   }
+
+  public getAllMessagesHttp() {
+    console.log('Chat Service: Get All Messages Http');
+    
+    return this.http.get<IMessage[]>('http://localhost:3030/allmessages');
+  }
+
+  public getAllMessages(me: IReceiver) {
+    console.log('Chat Service: Get All Messages Socket');
+
+    this.socket.emit('allmessages', me);
+    return this.socket.fromEvent<IMessage[]>('allmessages');
+  }
+
+  public getAllChatPartnersHttp(me: IReceiver) {
+    return this.http.get<IReceiver[]>('http://localhost:3030/receivers');
+  }
+
+  public getAllChatPartners(me: IReceiver) {
+    this.socket.emit('receivers', me);
+    return this.socket.fromEvent<IReceiver[]>('receivers');
+  }
+
+
 
   public sendMessage(message: IMessage) {
     this.socket.emit('message', message);
@@ -28,19 +52,4 @@ export class ChatService {
 
     this.socket.emit('login', req);
   }
-
-  public getAllChatPartners(me: IReceiver) {
-    this.socket.emit('receivers', me);
-    return this.socket.fromEvent<IReceiver[]>('receivers');
-  }
-
-  /*public getMessages = () => {
-      return Observable.create((observer) => {
-          this.socket.on('message', (message) => {
-              observer.next(message);
-          });
-      });
-  }*/
-
-
 }

@@ -7,7 +7,7 @@
          <mat-divider></mat-divider> 
          <mat-icon *ngIf="!c.isGroup" aria-hidden="false" aria-label="Person" style="margin-right: 10px">person</mat-icon>
          <mat-icon *ngIf="c.isGroup" aria-hidden="false" aria-label="Group" style="margin-right: 10px">group</mat-icon>
-         <span matBadge="0" matBadgeOverlap="false" matBadgePosition="after">{{ c.name }} </span>
+         <span matBadge="getUnreadCounter(c)" matBadgeOverlap="false" matBadgePosition="after">{{ c.name }} </span>
       </a>
       
          <a class="text" mat-list-item link="/">Create Group  
@@ -19,10 +19,10 @@
 </mat-sidenav-container>
 
 <mat-toolbar style="text-align: center; max-height: 11vh;">
-   <h3 id="selected_name">asldaslkdöaks{{selectedReceiver?.name}}</h3>
+   <h3 id="selected_name">{{selectedReceiver?.name}}</h3>
 </mat-toolbar>
             
 <div *ngIf="selectedReceiver !== undefined && selectedReceiver !== null && me !== null && me !== undefined">
-   <app-chat-window [me]="me" [chatPartner]="selectedReceiver">
+   <app-chat-window [me]="me" [chatPartner]="selectedReceiver" [messages]="allMessages">
    </app-chat-window>         
 </div>
