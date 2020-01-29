@@ -13,7 +13,7 @@ import { SocketIoModule, SocketIoConfig, Socket } from 'ngx-socket-io';
 import {NgxAutoScrollModule} from 'ngx-auto-scroll';
 import { SimplebarAngularModule } from 'simplebar-angular';
 
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3030', options: {} };
 
 @NgModule({
   declarations: [

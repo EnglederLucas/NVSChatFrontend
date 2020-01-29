@@ -10,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   showSpinner: boolean;
-  @Output() logIn: EventEmitter<any> = new EventEmitter<any>();
+  @Output() logIn: EventEmitter<IReceiver> = new EventEmitter<IReceiver>();
   username: string;
   password: string;
 
@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.service.successfulLogin.subscribe((res) => {
       this.showSpinner = false;
       if (res.success === true) {
+        console.log('Login response from server: '+JSON.stringify(res.user));
         this.logIn.emit(res.user);
       }
       else {

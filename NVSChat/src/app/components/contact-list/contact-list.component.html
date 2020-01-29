@@ -19,8 +19,7 @@
 </mat-sidenav-container>
 
             
-<!--<app-chat-window [me]="me" [chatPartner]="selectedReceiver">
-</app-chat-window>-->
-
-<app-chat-window>
-</app-chat-window>
+<div *ngIf="selectedReceiver !== undefined && selectedReceiver !== null && me !== null && me !== undefined">
+   <app-chat-window [me]="me" [chatPartner]="selectedReceiver">
+   </app-chat-window>         
+</div>

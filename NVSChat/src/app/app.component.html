@@ -3,6 +3,6 @@
 </div>
 
 <div *ngIf="loggedIn">
-    <app-contact-list [me]="">
+    <app-contact-list [me]="this.user">
     </app-contact-list>
 </div>

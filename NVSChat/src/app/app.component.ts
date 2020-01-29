@@ -12,8 +12,9 @@ export class AppComponent{
   user: IReceiver;
 
 
-  logInCompleted(me: IReceiver) {
-    this.user = me;
+  logInCompleted(user: IReceiver) {
+    this.user = user;
+    console.log(JSON.stringify(this.user));
     this.loggedIn = true;
   }
 }

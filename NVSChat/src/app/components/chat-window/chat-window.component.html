@@ -4,7 +4,7 @@
   <div ngx-auto-scroll lock-y-offset="10" observe-attributes id="inbox">
       <div id="messages" *ngFor="let mes of messageArr">
           <div id="message_wrapper">
-            <app-message [message]=mes [sent]="checkIfSent(mes)"></app-message>
+          <app-message [message]=mes [sent]="checkIfSent(mes)"></app-message>
           </div>
       </div>
     </div>

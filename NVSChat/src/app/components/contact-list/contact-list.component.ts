@@ -13,7 +13,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class ContactListComponent implements OnInit {
   @Input() me: IReceiver;
   allChats: Array<IReceiver> = new Array<IReceiver>();
-  selectedReceiver: IReceiver = null;
+  selectedReceiver: IReceiver;
 
   constructor(private service: ChatService) {
   }
@@ -24,22 +24,10 @@ export class ContactListComponent implements OnInit {
 
 
   ngOnInit() {
-    const u: IReceiver = {
-      id: 1,
-      name: 'Joe',
-      isGroup: false
-    };
-
-    const u2: IReceiver = {
-      id: 2,
-      name: 'Peter',
-      isGroup: false
-    };
-
-    this.allChats.push(u);
-    this.allChats.push(u2);
-
-    this.service.getAllChatPartners(this.me).subscribe((rec) => this.allChats.push(rec));
+   this.service.getAllChatPartners(this.me).subscribe((rec) => {
+     this.allChats = rec;
+     this.selectedReceiver = this.allChats[0];
+    });
   }
 
 }

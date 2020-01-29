@@ -31,7 +31,7 @@ export class ChatService {
 
   public getAllChatPartners(me: IReceiver) {
     this.socket.emit('receivers', me);
-    return this.socket.fromEvent<any>('receivers');
+    return this.socket.fromEvent<IReceiver[]>('receivers');
   }
 
   /*public getMessages = () => {

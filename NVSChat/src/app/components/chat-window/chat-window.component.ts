@@ -21,67 +21,6 @@ export class ChatWindowComponent implements OnInit {
 
 
   constructor(private chat: ChatService) {
-    chat.incomingMessages.subscribe((mes) => {
-      if (mes.sender.id === this.chatPartner.id) {
-        this.messageArr.push(mes);
-      }
-    });
-
-    const u: IReceiver = {
-      id: 1,
-      name: 'Joe',
-      isGroup: false
-    };
-
-    const u2: IReceiver = {
-      id: 2,
-      name: 'Peter',
-      isGroup: false
-    };
-
-    const lux: IReceiver = {
-      id: 5,
-      name: 'Lux',
-      isGroup: false
-    };
-
-    this.me = lux;
-
-    const m: IMessage = {
-      message: 'Hallo wie gehts?',
-      messageId: 1,
-      sender: u,
-      receiver: u2
-    };
-    this.messageArr.push(m);
-    const a: IMessage = {
-      message: '?',
-      messageId: 2,
-      receiver: u,
-      sender: u2,
-    };
-    this.messageArr.push(a);
-
-    const bb: IMessage = {
-      message: 'Idk',
-      messageId: 4,
-      receiver: u,
-      sender: lux
-    };
-
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-    this.messageArr.push(bb);
-
-    const own: IMessage = {
-      message: 'Ich bins',
-      messageId: 5,
-      sender: this.me,
-      receiver: u
-    };
-
-    this.messageArr.push(own);
   }
 
   sendMessage(mes: string): void{
@@ -105,6 +44,13 @@ export class ChatWindowComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.chat.incomingMessages.subscribe((mes) => {
+      console.log('Got message from server: ' + JSON.stringify(mes));
+      if (mes.sender.id === this.chatPartner.id) {
+        this.messageArr.push(mes);
+      }
+    });
+    console.log(JSON.stringify(this.chatPartner));
   }
 
 }
