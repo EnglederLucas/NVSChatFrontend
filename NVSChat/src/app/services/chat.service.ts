@@ -14,10 +14,10 @@ export class ChatService {
   constructor(private socket: Socket, private http: HttpClient) {
   }
 
-  public getAllMessagesHttp() {
+  public getAllMessagesHttp(me: IReceiver) {
     console.log('Chat Service: Get All Messages Http');
     
-    return this.http.get<IMessage[]>('http://localhost:3030/allmessages');
+    return this.http.get<IMessage[]>('http://localhost:3030/allmessages/' + me.id);
   }
 
   public getAllMessages(me: IReceiver) {
@@ -28,7 +28,7 @@ export class ChatService {
   }
 
   public getAllChatPartnersHttp(me: IReceiver) {
-    return this.http.get<IReceiver[]>('http://localhost:3030/receivers');
+    return this.http.get<IReceiver[]>('http://localhost:3030/receivers/' + me.id);
   }
 
   public getAllChatPartners(me: IReceiver) {
