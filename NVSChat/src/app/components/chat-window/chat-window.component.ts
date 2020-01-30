@@ -44,12 +44,20 @@ export class ChatWindowComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit chatWindow');
-
-    this.messageArr = this.messages.filter(mes => mes.receiver.id === this.chatPartner.id && mes.sender.id === this.chatPartner.id);
+  }
+  ngOnChanges(){
+    console.log('ngOnChange chatWindow');
+    console.log(this.messages + ' messages chat window')
+    if(this.chatPartner.isGroup){
+      this.messageArr = this.messages.filter((mes => mes.receiver.name == this.chatPartner.name));
+    }
+    else{
+      this.messageArr = this.messages.filter(mes => mes.sender.name === this.chatPartner.name );
+    }
     console.log(this.chatPartner.name + ' ' + "My Messsages " + this.messageArr.length);
 
     console.log(JSON.stringify(this.chatPartner));
   }
+
 
 }

@@ -38,9 +38,13 @@ export class ContactListComponent implements OnInit {
      this.selectedReceiver = this.allChats[0];
     });
 
-    this.service.getAllMessages(this.me).subscribe((messages) => this.allMessages = messages);
+    this.service.getAllMessages(this.me).subscribe((messages) => {
+      this.allMessages = messages
+      console.log('All m ' + this.allMessages.length);
+    });
 
     this.service.incomingMessages.subscribe((mes) => {
+      console.log(JSON.stringify(mes));
       this.unreadCounter[mes.receiver.id]++;
       this.allMessages.push(mes);
     });
