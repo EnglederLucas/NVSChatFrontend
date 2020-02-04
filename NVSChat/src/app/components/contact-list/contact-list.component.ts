@@ -1,5 +1,5 @@
+import { IReceiver } from './../../contracts/ireceiver';
 import { ChatService } from './../../services/chat.service';
-import { IReceiver } from 'src/app/contracts/IReceiver';
 import { EventEmitter } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { Component, OnInit, Input, Output } from '@angular/core';

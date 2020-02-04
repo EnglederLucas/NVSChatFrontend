@@ -7,7 +7,7 @@
          <mat-divider></mat-divider> 
          <mat-icon *ngIf="!c.isGroup" aria-hidden="false" aria-label="Person" style="margin-right: 10px">person</mat-icon>
          <mat-icon *ngIf="c.isGroup" aria-hidden="false" aria-label="Group" style="margin-right: 10px">group</mat-icon>
-         <span matBadge="getUnreadCounter(c)" matBadgeOverlap="false" matBadgePosition="after">{{ c.name }} </span>
+         <span [matBadge]="getUnreadCounter(c)" matBadgeOverlap="false" matBadgePosition="after">{{ c.name }}</span>
       </a>
       
          <a class="text" mat-list-item link="/">Create Group  
