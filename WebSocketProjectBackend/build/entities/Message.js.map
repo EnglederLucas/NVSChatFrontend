@@ -1,0 +1,1 @@
+{"version":3,"file":"Message.js","sourceRoot":"","sources":["../../app/entities/Message.ts"],"names":[],"mappings":";;AAKA;IAEI,iBACmB,MAAkB,EAClB,QAAqB,EACrB,OAAe,EACf,SAAkB,EAClB,cAAuB;QAJvB,WAAM,GAAN,MAAM,CAAY;QAClB,aAAQ,GAAR,QAAQ,CAAa;QACrB,YAAO,GAAP,OAAO,CAAQ;QACf,cAAS,GAAT,SAAS,CAAS;QAClB,mBAAc,GAAd,cAAc,CAAS;IACvC,CAAC;IACR,cAAC;AAAD,CAAC,AATD,IASC;AATY,0BAAO"}

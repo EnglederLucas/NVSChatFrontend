@@ -1,0 +1,13 @@
+{"messageId": "12","message": "message from 2","receiver": {"userId":1,"userName":"lux"},"sender": {"userId":2,"userName":"kevin"}}
+
+{
+  "userName": "kevin2",
+  "password":"password"
+  }
+
+  {
+  "messageId": "12",
+  "message": "message from 2",
+  "receiver": "kevin1",
+  "sender": "kevin2",
+}
