@@ -2,7 +2,7 @@ import { IMessage } from './../../contracts/imessage';
 import { Message } from './../../models/message';
 import { ChatService } from './../../services/chat.service';
 import { IReceiver } from './../../contracts/ireceiver';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, IterableDiffers, DoCheck, OnChanges} from '@angular/core';
 import {log} from 'util';
 
 @Component({
@@ -10,7 +10,7 @@ import {log} from 'util';
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css']
 })
-export class ChatWindowComponent implements OnInit {
+export class ChatWindowComponent implements OnInit, DoCheck {
   @Input() me: IReceiver;
   @Input() chatPartner: IReceiver;
   @Input() messages: Array<IMessage>;
@@ -18,8 +18,11 @@ export class ChatWindowComponent implements OnInit {
   curMessage = '';
   public messageArr: Array<IMessage> = new Array<IMessage>();
 
+  differ: any;
 
-  constructor(private chat: ChatService) {
+
+  constructor(private chat: ChatService, private differs: IterableDiffers) {
+    
   }
 
   sendMessage(mes: string): void{
@@ -59,5 +62,7 @@ export class ChatWindowComponent implements OnInit {
     console.log(JSON.stringify(this.chatPartner));
   }
 
-
+  ngDoCheck(){
+    console.log("OnDoCheck")
+  }
 }
